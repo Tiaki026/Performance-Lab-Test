@@ -45,7 +45,7 @@ def validate_input():
     """Проверяет входные данные и возвращает кортежи с координатами."""
 
     if len(sys.argv) != 3:
-        print("Требуется 2 аргумента - пути к файлам")
+        print("Неверное количество аргументов")
         print("Пример: python task2.py circle.txt points.txt")
         sys.exit(1)
 

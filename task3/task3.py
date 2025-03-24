@@ -55,7 +55,7 @@ def validate_args():
     """Проверяет аргументы командной строки."""
 
     if len(sys.argv) != 4:
-        print("Требуется 3 аргумента - пути к файлам")
+        print("Неверное количество аргументов")
         print("Пример: python task3.py values.json tests.json report.json")
         sys.exit(1)
 
