@@ -11,7 +11,7 @@ def load_json(file_path: str) -> Union[Dict, List]:
 
 
 def save_json(file_path: str, data: Union[Dict, List]) -> None:
-    """Сохраняет данные в JSON файл."""
+    """Сохраняет данные в JSON-файл."""
 
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, ensure_ascii=False, indent=2)
@@ -24,7 +24,7 @@ def build_values(values: List[Dict]) -> Dict[int, str]:
 
 
 def fill_values(node: Dict, values: Dict[int, str]) -> Dict:
-    """Рекурсивно заполняет значения в структуре."""
+    """Рекурсивно заполняет значения в древовидной структуре."""
 
     if "id" in node and node["id"] in values:
         node["value"] = values[node["id"]]
@@ -43,7 +43,7 @@ def generate_report(structure: Dict, data: List[Dict]) -> Dict:
 
     if "tests" in structure:
         structure["tests"] = [
-            fill_values(obj, values) for obj in structure["tests"]
+            fill_values(node, values) for node in structure["tests"]
         ]
     else:
         structure = fill_values(structure, values)
